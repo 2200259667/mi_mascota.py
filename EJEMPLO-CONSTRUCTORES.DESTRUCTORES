@@ -1,0 +1,48 @@
+class Perro:
+    def __init__(self, nombre, raza, edad=0):
+        """
+        Constructor que se llama al crear una instancia de la clase.
+        Inicializa los atributos del objeto.
+
+        Parameters:
+        - nombre: Nombre del perro.
+        - raza: Raza del perro.
+        - edad: Edad del perro (opcional, valor predeterminado es 0).
+        """
+        self.nombre = nombre
+        self.raza = raza
+        self.edad = edad
+        print(f'Se ha creado un perro: {self.nombre}, raza: {self.raza}, edad: {self.edad}')
+
+    def cumplir_anios(self, anos=1):
+        """
+        Método para aumentar la edad del perro en una cantidad de años.
+
+        Parameters:
+        - anos: Cantidad de años para envejecer (opcional, valor predeterminado es 1).
+        """
+        self.edad += anos
+        print(f'{self.nombre} ha cumplido {anos} años. Ahora tiene {self.edad} años.')
+
+    def ladrar(self):
+        """
+        Método que simula el ladrido del perro.
+        """
+        print(f'{self.nombre} ({self.raza}) dice: ¡Guau, guau!')
+
+    def __del__(self):
+        """
+        Destructor que se llama cuando todas las referencias al objeto se eliminan.
+        Realiza alguna forma de limpieza o despedida (en este caso, solo imprime un mensaje).
+        """
+        print(f'{self.nombre} ({self.raza}) se ha ido. ¡Hasta luego, Mufasa!')
+
+# Crear una instancia de la clase Perro con el nombre Mufasa
+mufasa = Perro('Mufasa', 'Golden Retriever', 2)
+
+# Interactuar con Mufasa
+mufasa.ladrar()
+mufasa.cumplir_anios(1)
+
+# La instancia se elimina automáticamente cuando ya no hay referencias a ella
+# Esto activa el destructor (__del__) que despide a Mufasa
